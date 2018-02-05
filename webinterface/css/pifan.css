@@ -1,0 +1,38 @@
+.row .row {
+    margin-bottom: 0;
+}
+[class*="col-"] {
+
+    /*
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2);
+    */
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+.container-fluid,
+.container {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#temp {
+    font-weight: bold;
+    font-size: xx-large;
+}
+#threshold {
+    font-size: x-large;
+    width: 100%;
+    text-align: center;
+    padding: 0.5em 0;
+}
+
+.btn-lg.adjust_temperature {
+    font-size: xx-large;
+    min-width: 8em;
+}
