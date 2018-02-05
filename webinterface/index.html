@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PiFan</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/pifan.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4">
+                <img id="spinning_fan" src="img/smiley_emoticons_ventilator-1.gif" width="70" height="70" align="left" />
+            </div>
+            <div class="col-xs-6" style="min-height: 72px;">
+                <h1>PiFan</h1>
+            </div>
+            <div class="col-xs-2">
+                <a href="index.html" style="float: right">
+                    <img src="img/refresh.png" width="70" height="70" />
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+
+                <p id="temp">
+                    <span id="curr_temp">...</span> &#8451;
+                </p>
+
+                <br /><br /><br />
+
+                <img id="toohot" width="140" style="display: none;">
+            </div>
+            <div class="col-xs-8">
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <button type="button" class="btn btn-lg btn-danger adjust_temperature" id="plus">
+                            + 0.5 &#8451;
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="threshold">
+                            Cool from <span id="curr_threshold">...</span> &#8451;
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <button type="button" class="btn btn-lg btn-info adjust_temperature" id="minus">
+                            - 0.5 &#8451;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    var curr_threshold = 0;
+    var curr_temp = 0;
+
+    function refreshStats()
+    {
+        $.getJSON("/api/curr_temp", function(result)
+        {
+            $("#curr_temp").html(result.temperature);
+            curr_temp = parseFloat(result.temperature);
+        });
+        $("#curr_threshold").html(curr_threshold);
+
+        if(curr_temp > curr_threshold)
+        {
+            $("#toohot").attr('src', '/img/hot/9.gif').fadeIn();
+        }
+        else
+        {
+            $("#toohot").fadeOut();
+        }
+    }
+
+    $(document).ready(function()
+    {
+        $.getJSON("/api/curr_threshold", function(result)
+        {
+            curr_threshold = parseFloat(result.temperature);
+            refreshStats();
+        });
+
+        setInterval(refreshStats, 3000);
+
+        $(".adjust_temperature").on('click', function(e)
+        {
+            var adj_type = $(this).attr("id");
+
+            if(adj_type == "minus")
+            {
+                curr_threshold -= 0.5;
+            }
+            else
+            {
+                curr_threshold += 0.5;
+            }
+
+            $("#curr_threshold").html(curr_threshold);
+
+            $.post("/api/threshold/" + curr_threshold.toString(), function(data){});
+        });
+
+        $("#spinning_fan").on('click', function()
+        {
+            $("h1").css('border', '1px solid green').on('click', function()
+            {
+                $.get("/api/shutdown_this_pihole", function(data){});
+            });
+
+            window.setTimeout(function()
+            {
+                $("h1").css('border', 'none').off('click');
+            }, 4000);
+        });
+    });
+</script>
+
+</body>
+</html>
