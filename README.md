@@ -4,10 +4,11 @@ Software I use on the PiFan
 
 # Installation
 
-**Be advised**: For this guide, please checkout this Git repository in `/home/pi/pifan`
-If you choose another location, please mind the paths in the rest of the steps.
+**Be advised**: For this guide, please checkout this Git repository in 
+`/home/pi/pifan`. If you choose to checkout to another location, please 
+adjust the paths in the installation commands and the scripts accordingly.
 
-###Install some software and link some configuration files.
+### Install the software, setup the configuration and reboot
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -32,3 +33,25 @@ sudo apt-get remove cups-bsd cups-client cups-common scratch greenfoot bluej sen
 sudo apt-get remove --purge libreoffice*
 ```
 
+
+## Hardware
+
+### Temperature Sensor
+For the temperature readings I chose the DHT22 from Adafruit. This sensor is 
+pretty accurate. You can also choose to use the DHT11, it's a little bit 
+cheaper but less accurate. I have bought the one already attached to a chip.
+
+### Touch screen and acrylic case
+The touch screen that has been used for this project is a 3,5" capacative 
+touch display. It comes with a cool acrylic case. This case also takes care
+of supporting the display.
+You can find them on eBay. At the time of writing, you could 
+[buy this one](https://www.ebay.com/p/3-5-TFT-LCD-Touch-Screen-Display-Clear-Case-for-Raspberry-Pi-2-3-Pi3-Model-B/629458989)
+
+_Btw: Please let me know when the link is dead._
+
+### Wiring
+Here's the scheme of the wiring. The display is just for illustration purposes 
+to see which pins are allocated by the action touchscreen. Use the image to 
+hook up the DHT22 temprature sensor.
+![Wiring of the PiFan](config/pifan_wiring.png?raw=true "Wiring of the PiFan")
