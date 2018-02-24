@@ -55,3 +55,6 @@ Here's the scheme of the wiring. The display is just for illustration purposes
 to see which pins are allocated by the action touchscreen. Use the image to 
 hook up the DHT22 temprature sensor.
 ![Wiring of the PiFan](config/pifan_wiring.png?raw=true "Wiring of the PiFan")
+
+# Credits
+ * The file `hub_ctrl` is a compiled version of the sourcecode of https://github.com/codazoda/hub-ctrl.c
