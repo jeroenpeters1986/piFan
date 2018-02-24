@@ -57,4 +57,4 @@ hook up the DHT22 temprature sensor.
 ![Wiring of the PiFan](config/pifan_wiring.png?raw=true "Wiring of the PiFan")
 
 # Credits
- * The file `hub_ctrl` is a compiled version of the sourcecode of https://github.com/codazoda/hub-ctrl.c
+ * The file `hub-ctrl` is a compiled version of the sourcecode of https://github.com/codazoda/hub-ctrl.c
