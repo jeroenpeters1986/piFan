@@ -3,6 +3,5 @@ Type=Application
 Exec=/usr/bin/chromium-browser --noerrdialogs --disable-session-crashed-bubble --disable-infobars --disable-translate --kiosk http://127.0.0.1
 Hidden=false
 X-GNOME-Autostart-enabled=true
-Name[en_US]=AutoChromium
 Name=AutoChromium
-Comment=Start Chromium when GNOME starts
+Comment=AutostartPiFan
