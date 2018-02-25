@@ -17,7 +17,9 @@ service nginx stop
 service supervisor stop
 cp /home/pi/pifan/config/AutoChromium.desktop /home/pi/.config/autostart/AutoChromium.desktop
 sudo pip install -r /home/pi/pifan/config/requirements.txt
-https://github.com/adafruit/Adafruit_Python_DHT.git /tmp/dht; cd /tmp/dht; sudo python setup.py install
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git /tmp/dht
+cd /tmp/dht
+sudo python setup.py install
 sudo rm /etc/nginx/sites-enabled/default
 sudo cp /home/pi/pifan/config/nginx-sites-enabled-default /etc/nginx/sites-enabled/default
 sudo cp /home/pi/pifan/config/supervisor-falcontrol.conf /etc/supervisor/conf.d/falcontrol.conf
