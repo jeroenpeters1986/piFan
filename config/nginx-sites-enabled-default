@@ -1,10 +1,10 @@
-# Default server configuration
-#
+# Server configuration for the PiFan
+# Load up the PiFan webinterface as a default and proxy the API connection
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	root /home/pi/pifan/public_html;
+	root /home/pi/pifan/webinterface;
 
 	server_name _;
 
@@ -12,7 +12,7 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-    # Falcon, run by supervisor
+        # Falcon, run by supervisor
 	location /api {
         	proxy_pass http://127.0.0.1:8000;
 	}
