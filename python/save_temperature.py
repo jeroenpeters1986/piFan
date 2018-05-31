@@ -9,6 +9,10 @@ pin = 4
 humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
 if humidity is not None and temperature is not None:
+
+    # Fahrenheit
+    temperature = temperature * 9 / 5.0 + 32
+
     data = {'temperature': "{0:0.1f}".format(temperature)}
     with open('/home/pi/pifan/data/curr_temp.json', 'w') as outfile:
         json.dump(data, outfile)

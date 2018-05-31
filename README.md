@@ -62,3 +62,4 @@ hook up the DHT22 temprature sensor.
 
 # Credits
  * The file `hub-ctrl` is a compiled version of the sourcecode of https://github.com/codazoda/hub-ctrl.c
+ * Thanks to Rick from Discoverwebs for the Fahrenheit calculation
