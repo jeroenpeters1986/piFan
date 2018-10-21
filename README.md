@@ -1,6 +1,11 @@
 # piFan
 Software I use on the PiFan
 
+**Attention!**
+ * Do you have a Pi3B+? Please use the branch `pi3b-plus`, it contains a small fix for controlling USB ports
+ * Do you want to display Fahrenheit instead of Celsius? Please checkout the `fahrenheit` branch (on Pi up to Pi3B)
+
+Please also checkout the [Pi hardware compatibility list](#raspberry-pi) below
 
 # Installation
 
