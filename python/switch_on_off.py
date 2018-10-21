@@ -17,7 +17,7 @@ switch = 0
 if curr_temp > curr_threshold:
     switch = 1
 
-control_command = "sudo {}hub-ctrl -h 0 -P 2 -p {}"
+control_command = "sudo {}hub-ctrl -h 1 -P 2 -p {}"
 complete_control_command = shlex.split(control_command.format(pifan_path, str(switch)))
 subprocess.call(complete_control_command)
 
