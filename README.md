@@ -1,6 +1,11 @@
 # piFan
 Software I use on the PiFan
 
+**Attention!**
+ * Do you have a Pi3B+? Please use the branch `pi3b-plus`, it contains a small fix for controlling USB ports
+ * Do you want to display Fahrenheit instead of Celsius? Please checkout the `fahrenheit` branch (on Pi up to Pi3B)
+
+Please also checkout the [Pi hardware compatibility list](#raspberry-pi) below
 
 # Installation
 
@@ -16,6 +21,7 @@ sudo apt-get install nginx-light supervisor git build-essential python-dev pytho
 service nginx stop
 service supervisor stop
 cp /home/pi/pifan/config/AutoChromium.desktop /home/pi/.config/autostart/AutoChromium.desktop
+chmod +x /home/pi/pifan/hub-ctrl
 sudo pip install -r /home/pi/pifan/config/requirements.txt
 git clone https://github.com/adafruit/Adafruit_Python_DHT.git /tmp/dht
 cd /tmp/dht
@@ -39,6 +45,21 @@ sudo apt-get remove --purge libreoffice*
 
 
 ## Hardware
+
+### Raspberry Pi
+
+Offcourse you need a Raspberry Pi. There are multiple Pi models, not every Pi would work.
+
+Thanks to @koenvervloesem I can provide you this overview:
+
+| Model                    | Suitable for PiFan    | Comment                                                                                                                          |
+|--------------------------|-----------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Pi Zero and Pi Zero W    | No                    | These models don't have a USB hub                                                                                                |
+| Pi 1 Model B             | No                    | The USB ports for this model are not controllable                                                                                |
+| Pi 1 Model B+ Pi 2 Pi 3B | Yes                   | These all work without modifications                                                                                             |
+| Pi 3B+                   | Yes, with code change | you need to change the option `-h 0` on the line beginning with `control_command` in `/home/pi/pifan/switch_on_off.py` to `-h 1` |
+
+With this knowledge, I got the piFan software working on the Pi 2, 3B and 3B+ (I haven't found my Pi 1 Model B+).
 
 ### Temperature Sensor
 For the temperature readings I chose the DHT22 from Adafruit. This sensor is 
