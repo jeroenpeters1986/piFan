@@ -16,6 +16,7 @@ sudo apt-get install nginx-light supervisor git build-essential python-dev pytho
 service nginx stop
 service supervisor stop
 cp /home/pi/pifan/config/AutoChromium.desktop /home/pi/.config/autostart/AutoChromium.desktop
+chmod +x /home/pi/pifan/hub-ctrl
 sudo pip install -r /home/pi/pifan/config/requirements.txt
 git clone https://github.com/adafruit/Adafruit_Python_DHT.git /tmp/dht
 cd /tmp/dht
