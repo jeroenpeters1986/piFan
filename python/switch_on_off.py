@@ -19,7 +19,7 @@ command = "cat /proc/cpuinfo"
 all_info = subprocess.check_output(command, shell=True).strip()
 for line in all_info.split("\n"):
     if "Revision" in line:
-        cpu_revision = re.sub(".*Revision.*:", "", line, 1)
+        cpu_revision = re.sub(".*Revision.*:", "", line, 1).strip()
 
 # ./hub-ctrl -h 0 -P 2 -p 0
 switch = 0
