@@ -49,16 +49,14 @@ sudo apt-get remove --purge libreoffice*
 
 Offcourse you need a Raspberry Pi. There are multiple Pi models, not every Pi would work.
 
-Thanks to @koenvervloesem I can provide you this overview:
+Thanks to @koenvervloesem from the [MagPi NL](https://www.magpi.nl) I can provide you this overview:
 
-| Model                    | Suitable for PiFan    | Comment                                                                                                                          |
-|--------------------------|-----------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Pi Zero and Pi Zero W    | No                    | These models don't have a USB hub                                                                                                |
-| Pi 1 Model B             | No                    | The USB ports for this model are not controllable                                                                                |
-| Pi 1 Model B+ Pi 2 Pi 3B | Yes                   | These all work without modifications                                                                                             |
-| Pi 3B+                   | Yes, with code change | you need to change the option `-h 0` on the line beginning with `control_command` in `/home/pi/pifan/switch_on_off.py` to `-h 1` |
-
-With this knowledge, I got the piFan software working on the Pi 2, 3B and 3B+ (I haven't found my Pi 1 Model B+).
+| Model                    | Suitable for PiFan    | Comment                                           |
+|--------------------------|-----------------------|---------------------------------------------------|
+| Pi Zero and Pi Zero W    | No                    | These models don't have a USB hub                 |
+| Pi 1 Model B             | No                    | The USB ports for this model are not controllable |
+| Pi 1 Model B+ Pi 2 Pi 3B | Yes                   | These all work without modifications              |
+| Pi 3B+                   | Yes                   | Since 2018-10-22 it works on the master branch    |
 
 ### Temperature Sensor
 For the temperature readings I chose the DHT22 from Adafruit. This sensor is 
