@@ -87,7 +87,8 @@
 
         if(curr_temp > curr_threshold)
         {
-            $("#toohot").attr('src', '/img/hot/9.gif').fadeIn();
+            var randomnumber = Math.floor(Math.random()*10);
+            $("#toohot").attr('src', '/img/hot/' + randomnumber + '.gif').fadeIn();
         }
         else
         {
