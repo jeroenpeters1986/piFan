@@ -7,7 +7,7 @@ Please also checkout the [Pi hardware compatibility list](#raspberry-pi) below
 
 # Installation
 
-**Be advised**: For this guide, please checkout this Git repository in 
+**Be advised**: For this guide, the files will be checked out into  
 `/home/pi/pifan`. If you choose to checkout to another location, please 
 adjust the paths in the installation commands and the scripts accordingly.
 
@@ -18,6 +18,7 @@ sudo apt-get upgrade
 sudo apt-get install nginx-light supervisor git build-essential python-dev python-pip
 service nginx stop
 service supervisor stop
+git clone https://github.com/jeroenpeters1986/piFan.git /home/pi/pifan
 cp /home/pi/pifan/config/AutoChromium.desktop /home/pi/.config/autostart/AutoChromium.desktop
 chmod +x /home/pi/pifan/hub-ctrl
 sudo pip install -r /home/pi/pifan/config/requirements.txt
