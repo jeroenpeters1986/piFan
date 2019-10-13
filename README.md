@@ -19,6 +19,7 @@ sudo apt-get install nginx-light supervisor git build-essential python-dev pytho
 service nginx stop
 service supervisor stop
 git clone https://github.com/jeroenpeters1986/piFan.git /home/pi/pifan
+mkdir -p /home/pi/.config/autostart/
 cp /home/pi/pifan/config/AutoChromium.desktop /home/pi/.config/autostart/AutoChromium.desktop
 chmod +x /home/pi/pifan/hub-ctrl
 sudo pip install -r /home/pi/pifan/config/requirements.txt
